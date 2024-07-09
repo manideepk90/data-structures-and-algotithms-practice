@@ -1,2 +1,2 @@
-# data-structures-and-algotithms-practive
+# data-structures-and-algotithms-practice
  
