@@ -10,6 +10,7 @@ public class LinkedList {
         this.tail = null;
     }
 
+// Insert at end
     public int append(int data) {
         Node newNode = new Node(data);
         if (this.head == null) {
@@ -24,6 +25,7 @@ public class LinkedList {
         }
         return data;
     }
+// insert at end by Node
 
     public int append(Node node) {
         if (this.head == null) {
@@ -39,6 +41,7 @@ public class LinkedList {
         return node.getData();
     }
 
+// insert at start
     public int push(int data) {
         Node newNode = new Node(data);
         newNode.next = this.head;
@@ -52,6 +55,7 @@ public class LinkedList {
         return node.getData();
     }
 
+// insert after a specific node
     public int insert(Node prevNode, int data) {
         Node newNode = new Node(data);
         if (prevNode == null) {
@@ -69,12 +73,39 @@ public class LinkedList {
         return data;
     }
 
-    public int pop(int data) {
-        Node temp = this.getTail();
-        // delete temp;
+// Traversal 
+    public int searchPosition(int value) {
+        int position = 1;
+        Node temp = this.head;
+        while (temp != null) {
+            if (temp.getData() == value) {
+                return position;
+            }
+            position++;
+            temp = temp.next;
+        }
         return -1;
     }
+// recursive Traversal
 
+    public int rSearchPosition(int value, int position, Node node) {
+        if (node == null) {
+            return -1;
+        }
+        if (node.getData() == value) {
+            return position;
+        }
+        position++;
+        node = node.next;
+        return this.rSearchPosition(value, position, node);
+    }
+
+    // method overloading to send default arguments
+    public int rSearchPosition(int value) {
+        return this.rSearchPosition(value, 1, this.getHead());
+    }
+
+// Print all data
     public int print() {
         Node temp = this.head;
         while (temp != null) {
