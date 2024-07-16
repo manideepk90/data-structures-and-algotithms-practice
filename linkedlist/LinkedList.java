@@ -105,6 +105,12 @@ public class LinkedList {
         return this.rSearchPosition(value, 1, this.getHead());
     }
 
+
+    // Delete First element
+    public void deleteFirst(){
+        this.head = head.next;
+    }
+
 // Print all data
     public int print() {
         Node temp = this.head;
