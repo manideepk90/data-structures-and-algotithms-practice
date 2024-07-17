@@ -14,13 +14,15 @@ public class DSA {
         list.push(15);
         list.append(23);
         list.print();
-        System.out.println(" " + list.rSearchPosition(23));
-        list.append(58);
-        list.insert(node, 55);
-        list.deleteFirst();
+        System.out.println("");
+        // list.append(58);
+        // list.insert(node, 55);
+        // list.deleteFirst();
+        list.deleteLast();        list.deleteLast();
+        list.deleteLast();
+
         list.print();
-        System.out.println(" " + list.rSearchPosition(23));
-        System.out.println(" " + list.searchPosition(85));
-        // System.out.println (list.getTail().data);
+   
+     
     }
 }
