@@ -73,20 +73,26 @@ public class LinkedList {
         return data;
     }
 
-    public int insert(int position, int data) {
-        // int currPosition = 1;
-        // if (this.head == null) {
-        //     throw new Error("The linkedlist has no elements");
-        // }
-        // Node curr = this.head;
-        // while(currPosition == position ){
-        //     curr 
-        // }
-        return 0;
+    public void insert(int position, int data) {
+        Node newNode = new Node(data);
+        if(position == 1){
+            newNode.next = this.head;
+            this.head = newNode;
+            return;
+        }
+        int currPosition = 1;
+        Node curr = this.head;
+        while(currPosition != position - 1 && curr != null){
+            currPosition++;
+            curr = curr.next;
+        }
+        if(curr == null) throw new IndexOutOfBoundsException("Position out of bounds");
+        newNode.next = curr.next;
+        curr.next = newNode;
     }
 
-    public int insert(int data) {
-        return this.insert(1, data);
+    public void insert(int data) {
+        this.insert(1, data);
     }
 
     // Traversal 
@@ -138,6 +144,28 @@ public class LinkedList {
             curr = curr.next;
         }
         curr.next = null;
+    }
+
+    public void delete(int position) {
+        if (this.head == null) {
+            throw new IndexOutOfBoundsException("Position out of the limit");
+        }
+        if (position == 1 && this.head.next != null) {
+            this.head = this.head.next;
+            return;
+        }
+        Node curr = this.head;
+        int currPosition = 1;
+        while (curr.next != null && currPosition != position - 1) {
+            currPosition++;
+            curr = curr.next;
+        }
+        if (curr.next == null || curr.next.next == null) {
+            throw new IndexOutOfBoundsException("Position out of the limit");
+        }
+
+        Node next = curr.next.next;
+        curr.next = next;
     }
 
     // Print all data

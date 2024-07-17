@@ -16,11 +16,12 @@ public class DSA {
         list.print();
         System.out.println("");
         // list.append(58);
-        // list.insert(node, 55);
-        // list.deleteFirst();
-        list.deleteLast();        list.deleteLast();
-        list.deleteLast();
-
+        // // list.insert(node, 55);
+        // // list.deleteFirst();
+        // list.deleteLast();        list.deleteLast();
+        // list.deleteLast();
+        list.insert(5,3);
+        // list.delete(1);
         list.print();
    
      
