@@ -75,18 +75,39 @@ public class LinkedList {
 
     public void insert(int position, int data) {
         Node newNode = new Node(data);
-        if(position == 1){
+        if (position == 1) {
             newNode.next = this.head;
             this.head = newNode;
             return;
         }
         int currPosition = 1;
         Node curr = this.head;
-        while(currPosition != position - 1 && curr != null){
+        while (currPosition != position - 1 && curr != null) {
             currPosition++;
             curr = curr.next;
         }
-        if(curr == null) throw new IndexOutOfBoundsException("Position out of bounds");
+        if (curr == null) {
+            return;
+        }
+        newNode.next = curr.next;
+        curr.next = newNode;
+    }
+
+    public void sInsert(int data) {
+        Node newNode = new Node(data);
+        if (this.head == null) {
+            this.head = newNode;
+            return;
+        }
+        if(this.head.data > data) {
+            newNode.next = this.head;
+            this.head = newNode;
+            return;
+        }
+        Node curr = this.head;
+        while (curr.next != null && data > curr.next.data) {
+            curr = curr.next;
+        }
         newNode.next = curr.next;
         curr.next = newNode;
     }
@@ -148,7 +169,8 @@ public class LinkedList {
 
     public void delete(int position) {
         if (this.head == null) {
-            throw new IndexOutOfBoundsException("Position out of the limit");
+
+            return;
         }
         if (position == 1 && this.head.next != null) {
             this.head = this.head.next;
@@ -161,7 +183,8 @@ public class LinkedList {
             curr = curr.next;
         }
         if (curr.next == null || curr.next.next == null) {
-            throw new IndexOutOfBoundsException("Position out of the limit");
+            // throw new IndexOutOfBoundsException("Position out of the limit");
+            return;
         }
 
         Node next = curr.next.next;
@@ -177,7 +200,6 @@ public class LinkedList {
                 System.out.print(", ");
             }
             temp = temp.next;
-
         }
         return 0;
     }

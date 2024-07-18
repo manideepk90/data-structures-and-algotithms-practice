@@ -1,8 +1,10 @@
 
+import linkedlist.LinkedList;
+
 public class DSA {
 
     public static void main(String[] args) {
-        // LinkedList list = new LinkedList();
+        LinkedList list = new LinkedList();
         // list.append(10);
         // list.append(20);
         // Node node = new Node(2);
@@ -18,9 +20,14 @@ public class DSA {
         // list.deleteLast();
         // list.deleteLast();
         // list.deleteLast();
-        // list.insert(5, 3);
-        // list.delete(1);
-        // list.print();
+        list.insert(1, 3);
+        list.delete(1);
+        list.sInsert(20);
+        list.sInsert(5);
+        list.sInsert(40);
+        list.sInsert(10);
+        list.sInsert(10);
+        list.print();
 
     }
 }
