@@ -99,7 +99,7 @@ public class LinkedList {
             this.head = newNode;
             return;
         }
-        if(this.head.data > data) {
+        if (this.head.data > data) {
             newNode.next = this.head;
             this.head = newNode;
             return;
@@ -189,6 +189,108 @@ public class LinkedList {
 
         Node next = curr.next.next;
         curr.next = next;
+    }
+    // Naive Solution
+    // public void reverse() {
+    //     if (this.head == null) {
+    //         return;
+    //     }
+    //     ArrayList<Integer> arrayList = new ArrayList<Integer>();
+    //     Node curr = this.head;
+    //     while (curr != null) {
+    //         arrayList.add(curr.data);
+    //         curr = curr.next;
+    //     }
+    //     for (curr = this.head; curr != null; curr = curr.next) {
+    //         curr.data = arrayList.remove(arrayList.size() - 1);
+    //     }
+    // }
+
+    // public void reverse(Node node) {
+    //         return null;
+    //        }
+    // } 
+    public void removeDuplicatesFromSortedL() {
+        Node curr = this.head;
+        while (curr != null && curr.next != null) {
+            if (curr.data == curr.next.data) {
+                curr.next = curr.next.next;
+            } else {
+                curr = curr.next;
+            }
+        }
+    }
+
+    public void reverse() {
+        Node prev = null;
+        Node curr = this.head;
+        while (curr != null) {
+            Node temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        // reverse(this.head);
+        this.head = prev;
+    }
+
+    // Naive Solution
+    // public int middle() {
+    //     if (this.head == null) {
+    //         return -1;
+    //     }
+    //     int count = 0;
+    //     for (Node curr = this.head; curr != null; curr = curr.next) {
+    //         count++;
+    //     }
+    //     Node curr = this.head;
+    //     for (int i = 0; i < count / 2; i++) {
+    //         curr = curr.next;
+    //     }
+    //     return curr.data;
+    // }
+    public int middle() {
+        if (this.head == null) {
+            return -1;
+        }
+        Node first = this.head, second = this.head;
+        while (first != null && first.next != null) {
+            second = second.next;
+            first = first.next.next;
+        }
+        return second.data;
+    }
+    // Naive Solution
+    // find NthNodefromtheEnd
+    // public int findNthFromTheEnd(int n) {
+    //     int len = 0;
+    //     for (Node curr = this.head; curr != null; curr = curr.next) {
+    //         len++;
+    //     }
+    //     if (n > len) {
+    //         return -1;
+    //     }
+    //     Node curr = this.head;
+    //     for (int i = 1; i < len - n + 1; i++) {
+    //         curr = curr.next;
+    //     }
+    //     return curr.data;
+    // }
+
+    public int findNthFromTheEnd(int n) {
+        Node first = this.head;
+        for (int i = 1; i < n && first != null; i++) {
+            first = first.next;
+        }
+        if (first == null) {
+            return -1;
+        }
+        Node second = this.head;
+        while (first.next != null) {
+            second = second.next;
+            first = first.next;
+        }
+        return second.data;
     }
 
     // Print all data

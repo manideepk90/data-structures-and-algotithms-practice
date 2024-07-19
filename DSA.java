@@ -12,21 +12,25 @@ public class DSA {
         // list.append(16);
         // list.push(15);
         // list.append(23);
-        // list.print();
-        // System.out.println("");
         // list.append(58);
         // list.insert(node, 55);
         // list.deleteFirst();
         // list.deleteLast();
         // list.deleteLast();
         // list.deleteLast();
-        list.insert(1, 3);
-        list.delete(1);
+        // list.insert(1, 3);
+        // list.delete(1);
         list.sInsert(20);
         list.sInsert(5);
         list.sInsert(40);
         list.sInsert(10);
+        list.sInsert(5);
+        list.sInsert(3);
         list.sInsert(10);
+        list.sInsert(20);
+        // list.reverse();
+        list.removeDuplicatesFromSortedL();
+        System.out.println(list.findNthFromTheEnd(3));
         list.print();
 
     }
