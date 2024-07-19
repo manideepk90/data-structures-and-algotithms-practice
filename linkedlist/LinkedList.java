@@ -169,7 +169,6 @@ public class LinkedList {
 
     public void delete(int position) {
         if (this.head == null) {
-
             return;
         }
         if (position == 1 && this.head.next != null) {
@@ -182,13 +181,25 @@ public class LinkedList {
             currPosition++;
             curr = curr.next;
         }
-        if (curr.next == null || curr.next.next == null) {
+        if (curr.next == null) {
             // throw new IndexOutOfBoundsException("Position out of the limit");
             return;
         }
+        curr.next = curr.next.next;
+    }
 
-        Node next = curr.next.next;
-        curr.next = next;
+    public boolean isSorted() {
+        Node curr = this.head;
+        while (curr != null && curr.next != null && curr.next.next != null) {
+            if (curr.data > curr.next.data && curr.next.data < curr.next.next.data) {
+                return false;
+            }
+            if (curr.data < curr.next.data && curr.next.data > curr.next.next.data) {
+                return false;
+            }
+            curr = curr.next;
+        }
+        return true;
     }
     // Naive Solution
     // public void reverse() {
